@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="tubes" id="C9E60C39-0338-B395-C580-CDEF3DC12292" version="3.5">
+<createdBy>Thirafi Wian</createdBy>
+<createdTime>2017-10-18 13:01:32 UTC</createdTime>
+<ownerDesignName>tubes</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>C9E60C39-0338-B395-C580-CDEF3DC12292</designId>
+</OSDM_Design>
