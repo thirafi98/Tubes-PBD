@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 CREATE TABLE maskapai (
     id_maskapai       INTEGER NOT NULL,
     nama_maskapi      VARCHAR(25),
@@ -50,7 +50,7 @@ CREATE TABLE asuransi (
 
 ALTER TABLE asuransi ADD CONSTRAINT asuransi_pk PRIMARY KEY ( id_asuransi );
 
-CREATE TABLE penumpang (
+CREATE TABLE penumpangDomestik (
     id_penumpang       INTEGER NOT NULL,
     nama_penumpang     VARCHAR(25),
     alamat_penumpang   VARCHAR(25),
@@ -364,5 +364,4 @@ ALTER TABLE flight
 
 ALTER TABLE flight
     ADD CONSTRAINT penerbangan_bandara_fkv1 FOREIGN KEY ( id_penumpang )
->>>>>>> b2053cea89e84ef26e8a35cb6a97ae765d9603a4
         REFERENCES penumpang ( id_penumpang );
