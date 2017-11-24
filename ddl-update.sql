@@ -24,6 +24,77 @@ CREATE TABLE menerbangkan (
     jam_terbang   CHAR(10)
 );
 
+CREATE TABLE info_flight_tujuan (
+    id_info_tujuan    INTEGER NOT NULL,
+    id_pesawat        INTEGER NOT NULL,
+    id_b_tujuan       INTEGER NOT NULL,
+    id_b_asal         INTEGER NOT NULL,
+    status            CHAR(10),
+    waktu_datang      VARCHAR2(25),
+    waktu_berangkat   VARCHAR2(25),
+    id_penebangan     INTEGER NOT NULL
+);
+
+ALTER TABLE info_flight_tujuan ADD CONSTRAINT info_flight_pk PRIMARY KEY ( id_info_tujuan );
+
+ALTER TABLE info_flight_tujuan
+    ADD CONSTRAINT info_flight_bandara_fk FOREIGN KEY ( id_b_tujuan )
+        REFERENCES bandara ( id_bandara );
+
+ALTER TABLE info_flight_tujuan
+    ADD CONSTRAINT info_flight_pesawat_fk FOREIGN KEY ( id_pesawat )
+        REFERENCES pesawat ( id_pesawat );
+
+ALTER TABLE info_flight_tujuan
+    ADD CONSTRAINT info_flight_tujuan_flight_fk FOREIGN KEY ( id_penerbangan )
+        REFERENCES flight ( id_penerbangan );
+
+CREATE TABLE info_flight_asal (
+    id_info_asal      INTEGER NOT NULL,
+    id_pesawat        INTEGER NOT NULL,
+    id_b_tujuan       INTEGER NOT NULL,
+    id_b_asal         INTEGER NOT NULL,
+    status            CHAR(10),
+    waktu_datang      VARCHAR2(25),
+    waktu_berangkat   VARCHAR2(25),
+    id_penerbangan    INTEGER NOT NULL
+);
+
+ALTER TABLE info_flight_asal ADD CONSTRAINT info_flightv1_pk PRIMARY KEY ( id_info_asal );
+
+ALTER TABLE info_flight_asal
+    ADD CONSTRAINT info_flight_asal_flight_fk FOREIGN KEY ( id_penerbangan )
+        REFERENCES flight ( id_penerbangan );
+
+ALTER TABLE info_flight_asal
+    ADD CONSTRAINT info_flightv1_bandara_fkv2 FOREIGN KEY ( id_b_asal )
+        REFERENCES bandara ( id_bandara );
+
+ALTER TABLE info_flight_asal
+    ADD CONSTRAINT info_flightv1_pesawat_fk FOREIGN KEY ( id_pesawat )
+        REFERENCES pesawat ( id_pesawat );
+select * from info_flight_asal;
+
+CREATE TABLE info_flight_asal (
+    id_info_asal      INTEGER NOT NULL,
+    id_pesawat        INTEGER NOT NULL,
+    id_b_tujuan       INTEGER NOT NULL,
+    id_b_asal         INTEGER NOT NULL,
+    status            CHAR(10),
+    waktu_datang      VARCHAR2(25),
+    waktu_berangkat   VARCHAR2(25)
+);
+
+ALTER TABLE info_flight_asal ADD CONSTRAINT info_flightv1_pk PRIMARY KEY ( id_info_asal );
+
+ALTER TABLE info_flight_asal
+    ADD CONSTRAINT info_flightv1_bandara_fkv2 FOREIGN KEY ( id_b_asal )
+        REFERENCES bandara ( id_bandara );
+
+ALTER TABLE info_flight_asal
+    ADD CONSTRAINT info_flightv1_pesawat_fk FOREIGN KEY ( id_pesawat )
+        REFERENCES pesawat ( id_pesawat );
+
 ALTER TABLE menerbangkan ADD CONSTRAINT menerbangkan_pk PRIMARY KEY ( id_jadwal );
 
 ALTER TABLE menerbangkan
